@@ -2,22 +2,22 @@
 A TTProjectTest is a test class for testing the behavior of TTProject
 "
 Class {
-	#name : #TTProjectTest,
+	#name : #TStProjectTest,
 	#superclass : #TestCase,
 	#category : #'TempeSt-Tests'
 }
 
 { #category : #tests }
-TTProjectTest >> testProjectCreation [
+TStProjectTest >> testProjectCreation [
 
 	| project name |
 	
 	name := self class name, '_', self selector.
-	project := TTProject named: name.
+	project := TStProject named: name.
 	
 	self assert: project isEmpty.
 	
 	project delete.
 	
-	self deny: (TTProject projects includes: project)
+	self deny: (TStProject projects includes: project)
 ]

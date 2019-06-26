@@ -1,5 +1,5 @@
 Class {
-	#name : #TTProject,
+	#name : #TStProject,
 	#superclass : #Object,
 	#instVars : [
 		'projectName',
@@ -13,26 +13,26 @@ Class {
 }
 
 { #category : #actions }
-TTProject class >> deleteProject: aProject [
+TStProject class >> deleteProject: aProject [
 
 	^ self projects removeKey: aProject projectName ifAbsent: [ nil ]
 ]
 
 { #category : #'class initialization' }
-TTProject class >> initialize [
+TStProject class >> initialize [
 	"self initialize"
 	
 	projects := Dictionary new
 ]
 
 { #category : #accessing }
-TTProject class >> named: aString [
+TStProject class >> named: aString [
 
 	^ self projects at: aString ifAbsentPut: [ self newProjectNamed: aString ]
 ]
 
 { #category : #'instance creation' }
-TTProject class >> newProjectNamed: aString [
+TStProject class >> newProjectNamed: aString [
 
 	^ self new
 		projectName: aString;
@@ -40,18 +40,18 @@ TTProject class >> newProjectNamed: aString [
 ]
 
 { #category : #accessing }
-TTProject class >> projects [
+TStProject class >> projects [
 	^ projects
 ]
 
 { #category : #actions }
-TTProject >> delete [ 
+TStProject >> delete [ 
 
 	self class deleteProject: self
 ]
 
 { #category : #initialization }
-TTProject >> initialize [
+TStProject >> initialize [
 	
 	super initialize.
 	notes := OrderedCollection new.
@@ -59,29 +59,29 @@ TTProject >> initialize [
 ]
 
 { #category : #testing }
-TTProject >> isEmpty [ 
+TStProject >> isEmpty [ 
 
 	^ self notes isEmpty and: [ self resources isEmpty ]
 ]
 
 { #category : #accessing }
-TTProject >> notes [ 
+TStProject >> notes [ 
 
 	^notes
 ]
 
 { #category : #accessing }
-TTProject >> projectName [
+TStProject >> projectName [
 	^ projectName
 ]
 
 { #category : #accessing }
-TTProject >> projectName: anObject [
+TStProject >> projectName: anObject [
 	projectName := anObject
 ]
 
 { #category : #accessing }
-TTProject >> resources [ 
+TStProject >> resources [ 
 
 	^resources
 ]
